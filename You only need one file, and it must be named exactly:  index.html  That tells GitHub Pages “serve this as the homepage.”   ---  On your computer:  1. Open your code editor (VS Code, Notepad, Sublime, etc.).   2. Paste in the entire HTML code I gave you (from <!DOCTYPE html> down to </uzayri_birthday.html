@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Uzayri!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    .container {
+      padding: 3rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: fadeInDown 2s ease;
+    }
+    p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 1rem auto;
+      animation: fadeInUp 2s ease;
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 10s linear infinite;
+      opacity: 0.6;
+    }
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(45deg); opacity: 0; }
+      50% { opacity: 0.8; }
+      100% { transform: translateY(-100vh) rotate(45deg); opacity: 0; }
+    }
+    .button {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: #ffffff33;
+      border: none;
+      border-radius: 1rem;
+      font-size: 1.2rem;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .button:hover {
+      background: #ffffff55;
+    }
+    .hidden-message {
+      display: none;
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      animation: fadeInUp 2s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+  <div class="container">
+    <h1>Happy Birthday, Uzayri!</h1>
+    <p>To the most wonderful person in my universe—on your special day, I want to shower you with love, joy, and sweet surprises. You are not only the coolest and most playful soul I know, but also the one who fills my heart with warmth, laughter, and a thousand beautiful dreams. Today is your day, and I hope it's as magical and extraordinary as you are. I love you more than words can say, and I’m so grateful for you every single day. Let’s make this birthday unforgettable!</p>
+    <button class="button" onclick="showMessage()">Click here for a surprise</button>
+    <div class="hidden-message" id="hiddenMessage">
+      You are my favorite human, Uzayri. I’ve hidden a galaxy of love in this site—every sparkle, every heart, it’s all for you. Happy Birthday again, my love.
+    </div>
+  </div>
+  <audio autoplay loop>
+    <source src="https://example.com/your-music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <script>
+    function showMessage() {
+      document.getElementById('hiddenMessage').style.display = 'block';
+    }
+
+    function createHearts() {
+      const container = document.getElementById('hearts');
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+        container.appendChild(heart);
+      }
+    }
+    createHearts();
+  </script>
+</body>
+</html>
